@@ -1,17 +1,22 @@
 package com.conversaocripto.apirest.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
 
 import java.io.Serial;
 import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class CryptoCurrency implements Serializable {
+
     @Serial
     private static final long serialVersionUID = 1L;
 
-    private Integer id;
+    @Id
+    private String id;
     private String name;
     private String symbol;
     private Integer rank;
@@ -23,7 +28,7 @@ public class CryptoCurrency implements Serializable {
 
     }
 
-    public CryptoCurrency(Integer id, String name, String symbol, Integer rank,
+    public CryptoCurrency(String id, String name, String symbol, Integer rank,
                           Boolean isNew, Boolean isActive, String type) {
         this.id = id;
         this.name = name;
@@ -34,11 +39,11 @@ public class CryptoCurrency implements Serializable {
         this.type = type;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -95,11 +100,26 @@ public class CryptoCurrency implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CryptoCurrency that = (CryptoCurrency) o;
-        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(symbol, that.symbol) && Objects.equals(rank, that.rank) && Objects.equals(isNew, that.isNew) && Objects.equals(isActive, that.isActive) && Objects.equals(type, that.type);
+        return Objects.equals(id, that.id) && Objects.equals(name, that.name) && Objects.equals(symbol, that.symbol)
+                && Objects.equals(rank, that.rank) && Objects.equals(isNew, that.isNew) && Objects.equals(isActive,
+                that.isActive) && Objects.equals(type, that.type);
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(id, name, symbol, rank, isNew, isActive, type);
+    }
+
+    @Override
+    public String toString() {
+        return "CryptoCurrency{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", symbol='" + symbol + '\'' +
+                ", rank=" + rank +
+                ", isNew=" + isNew +
+                ", isActive=" + isActive +
+                ", type='" + type + '\'' +
+                '}';
     }
 }
