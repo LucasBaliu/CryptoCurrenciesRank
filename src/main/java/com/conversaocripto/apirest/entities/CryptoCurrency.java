@@ -1,11 +1,18 @@
 package com.conversaocripto.apirest.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.conversaocripto.apirest.service.CryptoCurrencyService;
+import com.conversaocripto.apirest.service.CryptoPricesService;
+import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
+import java.io.IOException;
 import java.io.Serial;
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 @Entity
@@ -23,6 +30,7 @@ public class CryptoCurrency implements Serializable {
     private Boolean isNew;
     private Boolean isActive;
     private String type;
+    private BigDecimal price;
 
     public CryptoCurrency(){
 
@@ -30,6 +38,7 @@ public class CryptoCurrency implements Serializable {
 
     public CryptoCurrency(String id, String name, String symbol, Integer rank,
                           Boolean isNew, Boolean isActive, String type) {
+
         this.id = id;
         this.name = name;
         this.symbol = symbol;
@@ -37,6 +46,12 @@ public class CryptoCurrency implements Serializable {
         this.isNew = isNew;
         this.isActive = isActive;
         this.type = type;
+    }
+
+    @JsonCreator
+    public CryptoCurrency(@JsonProperty("price") BigDecimal price) {
+
+        this.price = price;
     }
 
     public String getId() {
@@ -75,6 +90,7 @@ public class CryptoCurrency implements Serializable {
         return isNew;
     }
 
+    @JsonProperty("is_new")
     public void setNew(Boolean aNew) {
         isNew = aNew;
     }
@@ -83,6 +99,7 @@ public class CryptoCurrency implements Serializable {
         return isActive;
     }
 
+    @JsonProperty("is_active")
     public void setActive(Boolean active) {
         isActive = active;
     }
@@ -93,6 +110,14 @@ public class CryptoCurrency implements Serializable {
 
     public void setType(String type) {
         this.type = type;
+    }
+
+    public BigDecimal getPrice() {
+        return price;
+    }
+
+    public void setPrice(BigDecimal price) {
+        this.price = price;
     }
 
     @Override
@@ -113,7 +138,7 @@ public class CryptoCurrency implements Serializable {
     @Override
     public String toString() {
         return "CryptoCurrency{" +
-                "id=" + id +
+                "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", symbol='" + symbol + '\'' +
                 ", rank=" + rank +
