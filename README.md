@@ -20,7 +20,9 @@ Pré-requisitos: Java 21
 git clone https://github.com/devsuperior/sds1-wmazoni
 
 # executar o projeto
-./mvnw spring-boot:ru
+
+# Utilizar os endpoints de acordo com o tipo de moeda fiduciária que você quer comor retorno de valor (/usd, /brl, /eur...)
+
 ```
 
 # Autor
