@@ -15,7 +15,7 @@ bastando apenas incluir o valor de retorno desejado no endpoint após "/cryptocu
 # Como executar o projeto
 
 ## Back end
-Pré-requisitos: Java 21, IDEA IntelliJ
+Pré-requisitos: Java 21
 
 ```bash
 # clonar repositório
