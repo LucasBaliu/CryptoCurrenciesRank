@@ -19,11 +19,13 @@ Pré-requisitos: Java 21
 
 ```bash
 # clonar repositório
-git clone https://github.com/devsuperior/sds1-wmazoni
+git clone https://github.com/LucasBaliu/CryptoCurrenciesRank
 
 # executar o projeto
 
 # Utilizar os endpoints de acordo com o tipo de moeda fiduciária que você quer comor retorno de valor (/usd, /brl, /eur...)
+
+# url localhost:8080/cryptocurrencyrank/(usd, brl, eur, aud...)
 
 ```
 
