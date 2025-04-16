@@ -5,6 +5,8 @@ import com.conversaocripto.apirest.entities.CryptoPrices;
 import com.conversaocripto.apirest.repository.CryptoCurrencyRepository;
 import com.conversaocripto.apirest.repository.CryptoPricesRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
@@ -35,7 +37,7 @@ public class CryptoPricesService {
         try {
             HttpClient client = HttpClient.newHttpClient();
             HttpRequest request = HttpRequest.newBuilder()
-                    .uri(URI.create("https://api.coinlayer.com/live?access_key=d175bab53c6c43c5941e72deeb43140e&" +
+                    .uri(URI.create("https://api.coinlayer.com/live?access_key=e900d6ef4950e9f14c4d0c9fab59c5c0&" +
                             "target=" + coin + "&symbols=" + String.join("," , getAllSymbolsOne(cryptoCurrency)))).build();
 
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());

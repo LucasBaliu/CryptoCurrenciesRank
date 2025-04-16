@@ -5,6 +5,7 @@ import com.conversaocripto.apirest.service.CryptoPricesService;
 import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 import java.io.IOException;
 import java.io.Serial;

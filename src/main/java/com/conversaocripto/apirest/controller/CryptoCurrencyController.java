@@ -39,7 +39,7 @@ public class CryptoCurrencyController {
 
         } catch (RuntimeException e) {
 
-            e.printStackTrace();
+            e.getMessage();
         }
 
         return ResponseEntity.ok().body(updatedRankList);

@@ -3,6 +3,7 @@ package com.conversaocripto.apirest.entities;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.type.SqlTypes;
 
@@ -48,7 +49,7 @@ public class CryptoPrices implements Serializable {
     public BigDecimal getSpecificRates(String symbol) {
 
         for (Map.Entry<String, BigDecimal> item : this.rates.entrySet()) {
-            if (item.getKey() == symbol) {
+            if (item.getKey().equals(symbol)) {
                 return item.getValue();
             }
         }

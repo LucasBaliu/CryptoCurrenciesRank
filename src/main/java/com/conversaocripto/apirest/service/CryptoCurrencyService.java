@@ -24,11 +24,7 @@ import java.util.stream.Collectors;
 @Service
 public class CryptoCurrencyService {
 
-    private CryptoCurrencyRepository cryptoCurrencyRepository;
-
     List<CryptoCurrency> cryptoCurrencyList = new ArrayList<>();
-
-    CryptoPrices cryptoPrices = new CryptoPrices();
 
     public List<CryptoCurrency> mostRelevantCrypto() throws IOException, InterruptedException {
 
@@ -47,20 +43,11 @@ public class CryptoCurrencyService {
 
             top10 = cryptoCurrencyList.stream().limit(10).toList();
 
-        } catch(Exception e){
+        } catch (Exception e) {
 
             System.out.println(e.getMessage());;
         }
 
         return top10;
-    }
-
-    public List<String> getAllSymbolsOne(List<CryptoCurrency> cryptoCurrencyList) {
-
-        List<String> list = new ArrayList<>();
-
-        list.addAll(cryptoCurrencyList.stream().map(CryptoCurrency::getSymbol).toList());
-
-        return list;
     }
 }
