@@ -3,6 +3,8 @@
 # Sobre o projeto
 
 Crypto Currencies Rank e uma aplicação que consome duas Api's externas para capturar atributos atualizados de cripto moedas.
+O projeto visa manter, atualizada, uma lista das 10 cripto moedas de maior valor de mercado. O tipo de retorno do valor é da escolha do usuário,
+bastando apenas incluir o valor de retorno desejado no endpoint após "/cryptocurrencyrank"
 
 # Tecnologias utilizadas
 ## Back end
