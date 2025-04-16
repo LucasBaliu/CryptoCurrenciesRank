@@ -27,6 +27,19 @@ git clone https://github.com/LucasBaliu/CryptoCurrenciesRank
 
 # url localhost:8080/cryptocurrencyrank/(usd, brl, eur, aud...)
 
+# O retorno será uma lista do seguinte objeto:
+    {
+        "price": BigDecimal,
+        "id": String,
+        "name": String,
+        "symbol": String,
+        "rank": Integer,
+        "type": String,
+        "is_active": Boolean,
+        "is_new": Boolean
+    }
+
+# Caso a moeda requisitada no endpoint seja inválida, ainda terá o retorno do objeto acima porém os preços viram como null
 ```
 
 # Autor
